@@ -14,16 +14,20 @@ namespace okulcokboyutludizi
             string sube = "";
             Console.WriteLine("Okul Adedini giriniz");
             int okuladet = 0;
-            while (!int.TryParse(Console.ReadLine(),out okuladet))
+
+            bool otut = int.TryParse(Console.ReadLine(), out okuladet);
+            while (!otut)
             {
                 Console.WriteLine("Tekrar okul adedi giriniz");
             }
+
             Console.WriteLine("Sınıf adetlerini giriniz");
             int sinifadet = 0;
             while (!int.TryParse(Console.ReadLine(), out sinifadet))
             {
-                Console.WriteLine("Tekrar sınıf adedi giriniz");
+                Console.WriteLine("Tekrar sınıf adedi giriniz.");
             }
+
             Console.WriteLine("Sınıfta bulunabilecek maksimum öğrenci adedini giriniz");
             int ogrenciadet = 0;
             while (!int.TryParse(Console.ReadLine(), out ogrenciadet))
@@ -32,7 +36,6 @@ namespace okulcokboyutludizi
             }
             
             string[,,,] okullar = new string[okuladet, sinifadet, ogrenciadet, 3];
-
             for (int i = 0; i < okullar.GetLength(0); i++)
             {
                 Console.Write("{0}. Okulun adını giriniz:",i+1);
